@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+	<style>
+		body{
+			background: rgb(233, 209, 212);
+		}
+		
+	</style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-primary bg-dark text-success">
+        <a class="navbar-brand text-primary" href="#">Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link active text-primary" href="{%url 'home'%}" >Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-danger" href="{%url 'Post'%}">Post Blog</a>
+           
+          </div>
+        </div>  
+      </nav> 
+
+      <br>
+     
+
+        
+    
+            {%for i in read%}
+            <div class="card bg-dark text-primary mx-auto" style="width: 18rem;">
+              <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Your Post</h6>
+                  POST Id:<h1>{{i.id}}</h1>
+                  <p>Title:{{i.title}}</p>
+                  <p>Content:{{i.content}}</p>                  
+                  <p>Date:{{i.date}}</p>
+                  
+                  <a href="{%url 'update' i.id%}" class="card-link btn btn-primary">Update</a>
+                  <a href="{%url 'delete' i.id%}" class="card-link btn btn-danger">Delete</a>
+                </div>
+              </div>
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+
+            {%endfor%}
+      
+        
+        </div>
+      </div>
+
+    <br>
+      
+</body>
+</html>
